@@ -69,6 +69,25 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    flavorDimensions "flavor-type"
+
+    productFlavors {
+        dev {
+            dimension "flavor-type"
+            applicationId "com.mycompany.cipla"
+            versionCode 1
+            versionName "1.0"
+        }
+
+        prod {
+            dimension "flavor-type"
+            applicationId "com.mycompany.flutterflowdemoproject"
+            versionCode 1
+            versionName "1.0"
+        }
+
+    }
 }
 
 flutter {
