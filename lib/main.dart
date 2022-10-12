@@ -12,7 +12,7 @@ import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 import 'package:flutter_driver/driver_extension.dart';
 void main() async {
-  //enableFlutterDriverExtension();
+  enableFlutterDriverExtension();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await FlutterFlowTheme.initialize();
