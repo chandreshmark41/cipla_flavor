@@ -12,7 +12,7 @@ import 'flutter_flow/nav/nav.dart';
 import 'package:provider/provider.dart';
 import 'package:cipla/flavor.dart';
 import 'index.dart';
-//Commet added for testing the codemagic auto build.
+//Comment added for testing the codemagic auto build.
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
