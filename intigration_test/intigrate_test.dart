@@ -9,19 +9,17 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   group("mlk", () {
-    // final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-    // if (binding is LiveTestWidgetsFlutterBinding) {
-    //   binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
-    // }
+    final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+    if (binding is LiveTestWidgetsFlutterBinding) {
+      binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
+    }
 
-    IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+    //IntegrationTestWidgetsFlutterBinding.ensureInitialized();
     testWidgets("description", (WidgetTester tester) async {
-      //await Firebase.initializeApp();
+      await Firebase.initializeApp();
       app.main();
-
       await tester.pumpAndSettle();
-      await tester.enterText(
-          find.byType(TextFormField).first, "divyarania@sidgs.com");
+      await tester.enterText(find.byType(TextFormField).first, "divyarania@sidgs.com");
       await tester.enterText(find.byType(TextFormField).last, "123456");
       await tester.pumpAndSettle();
       await tester.tap(find.byType(FFButtonWidget).first);
