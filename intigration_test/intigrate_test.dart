@@ -9,12 +9,12 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   group("mlk", () {
-    final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-    if (binding is LiveTestWidgetsFlutterBinding) {
-      binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
-    }
+    // final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+    // if (binding is LiveTestWidgetsFlutterBinding) {
+    //   binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
+    // }
 
-    //IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+    IntegrationTestWidgetsFlutterBinding.ensureInitialized();
     testWidgets("description", (WidgetTester tester) async {
       await Firebase.initializeApp();
       app.main();
@@ -24,8 +24,10 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.byType(FFButtonWidget).first);
       await tester.pumpAndSettle();
-      expect(find.byType(UserDashboardCopyCopyWidget), findsNothing);
+
+     expect(find.byType(UserDashboardCopyCopyWidget), findsOneWidget);
       await tester.pumpAndSettle();
+      //expect(true, false);
     });
   });
 }
