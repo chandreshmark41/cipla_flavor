@@ -44,14 +44,13 @@ class _NursingAssesmentCopyWidgetState
         context.pushNamed('Admin_DashBoard');
       }
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
@@ -77,7 +76,6 @@ class _NursingAssesmentCopyWidgetState
         centerTitle: true,
         elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -363,14 +361,12 @@ class _NursingAssesmentCopyWidgetState
                                           alignment:
                                               AlignmentDirectional(0.15, 0),
                                           child: FlutterFlowCheckboxGroup(
-                                            initiallySelected:
-                                                feedingAassistanceValues ??= [],
                                             options: [
                                               FFLocalizations.of(context)
                                                   .getText(
                                                 '90m9ux1d' /* Feeding Aassistance */,
                                               )
-                                            ].toList(),
+                                            ],
                                             onChanged: (val) => setState(() =>
                                                 feedingAassistanceValues = val),
                                             activeColor:
@@ -382,6 +378,9 @@ class _NursingAssesmentCopyWidgetState
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyText1,
+                                            initialized:
+                                                feedingAassistanceValues !=
+                                                    null,
                                           ),
                                         ),
                                       ),
@@ -412,15 +411,12 @@ class _NursingAssesmentCopyWidgetState
                                           alignment:
                                               AlignmentDirectional(0.15, 0),
                                           child: FlutterFlowCheckboxGroup(
-                                            initiallySelected:
-                                                opioidsandtitrationValues ??=
-                                                    [],
                                             options: [
                                               FFLocalizations.of(context)
                                                   .getText(
                                                 'u7qdnxnl' /* Opioids  */,
                                               )
-                                            ].toList(),
+                                            ],
                                             onChanged: (val) => setState(() =>
                                                 opioidsandtitrationValues =
                                                     val),
@@ -433,6 +429,9 @@ class _NursingAssesmentCopyWidgetState
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyText1,
+                                            initialized:
+                                                opioidsandtitrationValues !=
+                                                    null,
                                           ),
                                         ),
                                       ),
@@ -500,8 +499,11 @@ class _NursingAssesmentCopyWidgetState
                                         value: checkboxListTileValue1 ??=
                                             listViewNursingAssessmentRecord!
                                                 .bleeding!,
-                                        onChanged: (newValue) => setState(() =>
-                                            checkboxListTileValue1 = newValue!),
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              checkboxListTileValue1 =
+                                                  newValue!);
+                                        },
                                         title: Text(
                                           FFLocalizations.of(context).getText(
                                             'v72r1ktz' /* Bleeding */,
@@ -547,8 +549,11 @@ class _NursingAssesmentCopyWidgetState
                                         value: checkboxListTileValue2 ??=
                                             listViewNursingAssessmentRecord!
                                                 .breathlessness!,
-                                        onChanged: (newValue) => setState(() =>
-                                            checkboxListTileValue2 = newValue!),
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              checkboxListTileValue2 =
+                                                  newValue!);
+                                        },
                                         title: Text(
                                           FFLocalizations.of(context).getText(
                                             'u7slidkn' /* Breathlessness */,
@@ -594,8 +599,11 @@ class _NursingAssesmentCopyWidgetState
                                         value: checkboxListTileValue3 ??=
                                             listViewNursingAssessmentRecord!
                                                 .bedridden!,
-                                        onChanged: (newValue) => setState(() =>
-                                            checkboxListTileValue3 = newValue!),
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              checkboxListTileValue3 =
+                                                  newValue!);
+                                        },
                                         title: Text(
                                           FFLocalizations.of(context).getText(
                                             'ib27wdpx' /* Bedridden */,
@@ -641,8 +649,11 @@ class _NursingAssesmentCopyWidgetState
                                         value: checkboxListTileValue4 ??=
                                             listViewNursingAssessmentRecord!
                                                 .restlessness!,
-                                        onChanged: (newValue) => setState(() =>
-                                            checkboxListTileValue4 = newValue!),
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              checkboxListTileValue4 =
+                                                  newValue!);
+                                        },
                                         title: Text(
                                           FFLocalizations.of(context).getText(
                                             '56xn6y4l' /* Restlessness */,
@@ -688,8 +699,11 @@ class _NursingAssesmentCopyWidgetState
                                         value: checkboxListTileValue5 ??=
                                             listViewNursingAssessmentRecord!
                                                 .clinicallystable!,
-                                        onChanged: (newValue) => setState(() =>
-                                            checkboxListTileValue5 = newValue!),
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              checkboxListTileValue5 =
+                                                  newValue!);
+                                        },
                                         title: Text(
                                           FFLocalizations.of(context).getText(
                                             'pmne0ctj' /* Clinicaly stable */,
@@ -735,8 +749,11 @@ class _NursingAssesmentCopyWidgetState
                                         value: checkboxListTileValue6 ??=
                                             listViewNursingAssessmentRecord!
                                                 .woundprogression!,
-                                        onChanged: (newValue) => setState(() =>
-                                            checkboxListTileValue6 = newValue!),
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              checkboxListTileValue6 =
+                                                  newValue!);
+                                        },
                                         title: Text(
                                           FFLocalizations.of(context).getText(
                                             's9g61zcc' /* Wound progression */,
@@ -782,8 +799,11 @@ class _NursingAssesmentCopyWidgetState
                                         value: checkboxListTileValue7 ??=
                                             listViewNursingAssessmentRecord!
                                                 .nowoundsorfeedingassistance!,
-                                        onChanged: (newValue) => setState(() =>
-                                            checkboxListTileValue7 = newValue!),
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              checkboxListTileValue7 =
+                                                  newValue!);
+                                        },
                                         title: Text(
                                           FFLocalizations.of(context).getText(
                                             '4awkmm0u' /* Feeding assistance */,
@@ -829,8 +849,11 @@ class _NursingAssesmentCopyWidgetState
                                         value: checkboxListTileValue8 ??=
                                             listViewNursingAssessmentRecord!
                                                 .oncatheterstoma!,
-                                        onChanged: (newValue) => setState(() =>
-                                            checkboxListTileValue8 = newValue!),
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              checkboxListTileValue8 =
+                                                  newValue!);
+                                        },
                                         title: Text(
                                           FFLocalizations.of(context).getText(
                                             'vkap67io' /* On catheter stoma */,

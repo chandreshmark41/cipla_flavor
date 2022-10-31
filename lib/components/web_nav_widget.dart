@@ -3,6 +3,8 @@ import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WebNavWidget extends StatefulWidget {
@@ -17,79 +19,100 @@ class _WebNavWidgetState extends State<WebNavWidget>
   final animationsMap = {
     'imageOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 20),
-        scale: 0.9,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0, 20),
+          end: Offset(0, 0),
+        ),
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.9,
+          end: 1,
+        ),
+      ],
     ),
     'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      delay: 200,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 40),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: Offset(0, 40),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'containerOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      delay: 200,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 40),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: Offset(0, 40),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'containerOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      delay: 200,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 40),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: Offset(0, 40),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
   };
 
   @override
   void initState() {
     super.initState();
-    startPageLoadAnimations(
-      animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
       this,
     );
   }
@@ -132,7 +155,7 @@ class _WebNavWidgetState extends State<WebNavWidget>
                 width: double.infinity,
                 height: 80,
                 fit: BoxFit.fitWidth,
-              ).animated([animationsMap['imageOnPageLoadAnimation']!]),
+              ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 12),
                 child: InkWell(
@@ -173,7 +196,8 @@ class _WebNavWidgetState extends State<WebNavWidget>
                       ),
                     ),
                   ),
-                ).animated([animationsMap['containerOnPageLoadAnimation1']!]),
+                ).animateOnPageLoad(
+                    animationsMap['containerOnPageLoadAnimation1']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
@@ -215,7 +239,8 @@ class _WebNavWidgetState extends State<WebNavWidget>
                       ),
                     ),
                   ),
-                ).animated([animationsMap['containerOnPageLoadAnimation2']!]),
+                ).animateOnPageLoad(
+                    animationsMap['containerOnPageLoadAnimation2']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
@@ -260,7 +285,8 @@ class _WebNavWidgetState extends State<WebNavWidget>
                       ),
                     ),
                   ),
-                ).animated([animationsMap['containerOnPageLoadAnimation3']!]),
+                ).animateOnPageLoad(
+                    animationsMap['containerOnPageLoadAnimation3']!),
               ),
             ],
           ),

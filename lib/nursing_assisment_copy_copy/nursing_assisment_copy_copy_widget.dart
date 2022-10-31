@@ -73,14 +73,13 @@ class _NursingAssismentCopyCopyWidgetState
         context.pushNamed('Admin_DashBoard');
       }
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
@@ -106,7 +105,6 @@ class _NursingAssismentCopyCopyWidgetState
         centerTitle: true,
         elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -258,16 +256,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  bleedingValues1 ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   'kl53keam' /* Bleeding */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       bleedingValues1 =
@@ -285,6 +280,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  bleedingValues1 !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -331,16 +329,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                           0),
                                                               child:
                                                                   FlutterFlowCheckboxGroup(
-                                                                initiallySelected:
-                                                                    breathlessnessValues1 ??=
-                                                                        [],
                                                                 options: [
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
                                                                     'tq42ncn0' /* Breathlessness */,
                                                                   )
-                                                                ].toList(),
+                                                                ],
                                                                 onChanged: (val) =>
                                                                     setState(() =>
                                                                         breathlessnessValues1 =
@@ -358,6 +353,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyText1,
+                                                                initialized:
+                                                                    breathlessnessValues1 !=
+                                                                        null,
                                                               ),
                                                             ),
                                                           ),
@@ -397,16 +395,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  remissionValues1 ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   '3jbu1xvh' /* Remission */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       remissionValues1 =
@@ -424,6 +419,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  remissionValues1 !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -481,16 +479,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  restlessnessValues1 ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   'zip9ntje' /* Restlessness */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       restlessnessValues1 =
@@ -508,6 +503,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  restlessnessValues1 !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -546,16 +544,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  endoflifecareValues ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   'rkmsy8jb' /* End of life care  */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       endoflifecareValues =
@@ -573,6 +568,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  endoflifecareValues !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -611,16 +609,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  opioidsandtitrationValues1 ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   'mii67w10' /* Opioids and titration */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       opioidsandtitrationValues1 =
@@ -638,6 +633,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  opioidsandtitrationValues1 !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -1144,16 +1142,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  bedriddenValues1 ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   'vf6p2j47' /* Bedridden */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       bedriddenValues1 =
@@ -1171,6 +1166,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  bedriddenValues1 !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -1209,16 +1207,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  breathlessnessValues2 ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   '583tya5d' /* Breathlessness */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       breathlessnessValues2 =
@@ -1236,6 +1231,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  breathlessnessValues2 !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -1274,16 +1272,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  remissionValues2 ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   'ojdf1qv6' /* Remission */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       remissionValues2 =
@@ -1301,6 +1296,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  remissionValues2 !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -1358,16 +1356,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  restlessnessValues2 ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   'bhmuifs4' /* Restlessness */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       restlessnessValues2 =
@@ -1385,6 +1380,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  restlessnessValues2 !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -1423,16 +1421,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  woundProgressionValues ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   '7syo763q' /* WoundProgression */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       woundProgressionValues =
@@ -1450,6 +1445,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  woundProgressionValues !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -1488,16 +1486,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  opioidsValues1 ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   '3edh4hv8' /* Opioids */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       opioidsValues1 =
@@ -1515,6 +1510,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  opioidsValues1 !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -1572,16 +1570,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  clinicallystableValues1 ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   'eqrsz5db' /* Clinically stable */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       clinicallystableValues1 =
@@ -1599,6 +1594,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  clinicallystableValues1 !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -1637,16 +1635,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  opioidsValues2 ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   'pu5iqkci' /* Opioids */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       opioidsValues2 =
@@ -1664,6 +1659,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  opioidsValues2 !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -2173,16 +2171,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  familywantsBBNtopatientValues ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   'hkbkst20' /* Family wants BBN to patient  */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       familywantsBBNtopatientValues =
@@ -2200,6 +2195,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  familywantsBBNtopatientValues !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -2238,16 +2236,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  familycollusionthataffectsGoalsofcareValues ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   '152ipm5h' /* Family collusion that affects ... */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       familycollusionthataffectsGoalsofcareValues =
@@ -2265,6 +2260,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  familycollusionthataffectsGoalsofcareValues !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -2484,16 +2482,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     0.15, 0),
                                                             child:
                                                                 FlutterFlowCheckboxGroup(
-                                                              initiallySelected:
-                                                                  pspValues ??=
-                                                                      [],
                                                               options: [
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
                                                                   's5j2zpan' /* PSP */,
                                                                 )
-                                                              ].toList(),
+                                                              ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
                                                                       pspValues =
@@ -2511,6 +2506,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                              initialized:
+                                                                  pspValues !=
+                                                                      null,
                                                             ),
                                                           ),
                                                         ),
@@ -3059,15 +3057,12 @@ class _NursingAssismentCopyCopyWidgetState
                                                                             0),
                                                                     child:
                                                                         FlutterFlowCheckboxGroup(
-                                                                      initiallySelected:
-                                                                          feedingAassistanceValues ??=
-                                                                              [],
                                                                       options: [
                                                                         FFLocalizations.of(context)
                                                                             .getText(
                                                                           'mde1aks5' /* Feeding Aassistance */,
                                                                         )
-                                                                      ].toList(),
+                                                                      ],
                                                                       onChanged:
                                                                           (val) =>
                                                                               setState(() => feedingAassistanceValues = val),
@@ -3083,6 +3078,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                       textStyle:
                                                                           FlutterFlowTheme.of(context)
                                                                               .bodyText1,
+                                                                      initialized:
+                                                                          feedingAassistanceValues !=
+                                                                              null,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -3132,15 +3130,12 @@ class _NursingAssismentCopyCopyWidgetState
                                                                             0),
                                                                     child:
                                                                         FlutterFlowCheckboxGroup(
-                                                                      initiallySelected:
-                                                                          opioidsandtitrationValues2 ??=
-                                                                              [],
                                                                       options: [
                                                                         FFLocalizations.of(context)
                                                                             .getText(
                                                                           '4xouszc5' /* Opioids  */,
                                                                         )
-                                                                      ].toList(),
+                                                                      ],
                                                                       onChanged:
                                                                           (val) =>
                                                                               setState(() => opioidsandtitrationValues2 = val),
@@ -3156,6 +3151,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                       textStyle:
                                                                           FlutterFlowTheme.of(context)
                                                                               .bodyText1,
+                                                                      initialized:
+                                                                          opioidsandtitrationValues2 !=
+                                                                              null,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -3229,16 +3227,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                           0.15),
                                                                   child:
                                                                       FlutterFlowCheckboxGroup(
-                                                                    initiallySelected:
-                                                                        breathlessnessValues3 ??=
-                                                                            [],
                                                                     options: [
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
                                                                         'tmwf8146' /* Breathlessness */,
                                                                       )
-                                                                    ].toList(),
+                                                                    ],
                                                                     onChanged: (val) =>
                                                                         setState(() =>
                                                                             breathlessnessValues3 =
@@ -3255,6 +3250,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     textStyle: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1,
+                                                                    initialized:
+                                                                        breathlessnessValues3 !=
+                                                                            null,
                                                                   ),
                                                                 ),
                                                               ),
@@ -3304,16 +3302,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                           0),
                                                                   child:
                                                                       FlutterFlowCheckboxGroup(
-                                                                    initiallySelected:
-                                                                        woundProgValues ??=
-                                                                            [],
                                                                     options: [
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
                                                                         'oxwar058' /* Wound progression */,
                                                                       )
-                                                                    ].toList(),
+                                                                    ],
                                                                     onChanged: (val) =>
                                                                         setState(() =>
                                                                             woundProgValues =
@@ -3330,6 +3325,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     textStyle: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1,
+                                                                    initialized:
+                                                                        woundProgValues !=
+                                                                            null,
                                                                   ),
                                                                 ),
                                                               ),
@@ -3401,16 +3399,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                           0),
                                                                   child:
                                                                       FlutterFlowCheckboxGroup(
-                                                                    initiallySelected:
-                                                                        bleedingValues2 ??=
-                                                                            [],
                                                                     options: [
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
                                                                         '4544i709' /* Bleeding */,
                                                                       )
-                                                                    ].toList(),
+                                                                    ],
                                                                     onChanged: (val) =>
                                                                         setState(() =>
                                                                             bleedingValues2 =
@@ -3427,6 +3422,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     textStyle: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1,
+                                                                    initialized:
+                                                                        bleedingValues2 !=
+                                                                            null,
                                                                   ),
                                                                 ),
                                                               ),
@@ -3468,16 +3466,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                         0),
                                                                 child:
                                                                     FlutterFlowCheckboxGroup(
-                                                                  initiallySelected:
-                                                                      bedriddenValues2 ??=
-                                                                          [],
                                                                   options: [
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
                                                                       'gys5pxdh' /* Bedridden  */,
                                                                     )
-                                                                  ].toList(),
+                                                                  ],
                                                                   onChanged: (val) =>
                                                                       setState(() =>
                                                                           bedriddenValues2 =
@@ -3495,6 +3490,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   textStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                                  initialized:
+                                                                      bedriddenValues2 !=
+                                                                          null,
                                                                 ),
                                                               ),
                                                             ),
@@ -3565,16 +3563,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                           0),
                                                                   child:
                                                                       FlutterFlowCheckboxGroup(
-                                                                    initiallySelected:
-                                                                        clinicallystableValues2 ??=
-                                                                            [],
                                                                     options: [
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
                                                                         'jhlm3z9q' /* Clinically stable  */,
                                                                       )
-                                                                    ].toList(),
+                                                                    ],
                                                                     onChanged: (val) =>
                                                                         setState(() =>
                                                                             clinicallystableValues2 =
@@ -3591,6 +3586,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                     textStyle: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1,
+                                                                    initialized:
+                                                                        clinicallystableValues2 !=
+                                                                            null,
                                                                   ),
                                                                 ),
                                                               ),
@@ -3632,16 +3630,13 @@ class _NursingAssismentCopyCopyWidgetState
                                                                         0),
                                                                 child:
                                                                     FlutterFlowCheckboxGroup(
-                                                                  initiallySelected:
-                                                                      bedriddenValues3 ??=
-                                                                          [],
                                                                   options: [
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
                                                                       'ahmccpbx' /* Bedridden  */,
                                                                     )
-                                                                  ].toList(),
+                                                                  ],
                                                                   onChanged: (val) =>
                                                                       setState(() =>
                                                                           bedriddenValues3 =
@@ -3659,6 +3654,9 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   textStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1,
+                                                                  initialized:
+                                                                      bedriddenValues3 !=
+                                                                          null,
                                                                 ),
                                                               ),
                                                             ),
@@ -3793,10 +3791,12 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   value: checkboxListTileValue1 ??=
                                                                       listViewNursingAssessmentRecord!
                                                                           .bleeding!,
-                                                                  onChanged: (newValue) =>
-                                                                      setState(() =>
-                                                                          checkboxListTileValue1 =
-                                                                              newValue!),
+                                                                  onChanged:
+                                                                      (newValue) async {
+                                                                    setState(() =>
+                                                                        checkboxListTileValue1 =
+                                                                            newValue!);
+                                                                  },
                                                                   title: Text(
                                                                     FFLocalizations.of(
                                                                             context)
@@ -3857,10 +3857,12 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   value: checkboxListTileValue2 ??=
                                                                       listViewNursingAssessmentRecord!
                                                                           .breathlessness!,
-                                                                  onChanged: (newValue) =>
-                                                                      setState(() =>
-                                                                          checkboxListTileValue2 =
-                                                                              newValue!),
+                                                                  onChanged:
+                                                                      (newValue) async {
+                                                                    setState(() =>
+                                                                        checkboxListTileValue2 =
+                                                                            newValue!);
+                                                                  },
                                                                   title: Text(
                                                                     FFLocalizations.of(
                                                                             context)
@@ -3921,10 +3923,12 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   value: checkboxListTileValue3 ??=
                                                                       listViewNursingAssessmentRecord!
                                                                           .bedridden!,
-                                                                  onChanged: (newValue) =>
-                                                                      setState(() =>
-                                                                          checkboxListTileValue3 =
-                                                                              newValue!),
+                                                                  onChanged:
+                                                                      (newValue) async {
+                                                                    setState(() =>
+                                                                        checkboxListTileValue3 =
+                                                                            newValue!);
+                                                                  },
                                                                   title: Text(
                                                                     FFLocalizations.of(
                                                                             context)
@@ -3985,10 +3989,12 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   value: checkboxListTileValue4 ??=
                                                                       listViewNursingAssessmentRecord!
                                                                           .restlessness!,
-                                                                  onChanged: (newValue) =>
-                                                                      setState(() =>
-                                                                          checkboxListTileValue4 =
-                                                                              newValue!),
+                                                                  onChanged:
+                                                                      (newValue) async {
+                                                                    setState(() =>
+                                                                        checkboxListTileValue4 =
+                                                                            newValue!);
+                                                                  },
                                                                   title: Text(
                                                                     FFLocalizations.of(
                                                                             context)
@@ -4049,10 +4055,12 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   value: checkboxListTileValue5 ??=
                                                                       listViewNursingAssessmentRecord!
                                                                           .clinicallystable!,
-                                                                  onChanged: (newValue) =>
-                                                                      setState(() =>
-                                                                          checkboxListTileValue5 =
-                                                                              newValue!),
+                                                                  onChanged:
+                                                                      (newValue) async {
+                                                                    setState(() =>
+                                                                        checkboxListTileValue5 =
+                                                                            newValue!);
+                                                                  },
                                                                   title: Text(
                                                                     FFLocalizations.of(
                                                                             context)
@@ -4113,10 +4121,12 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   value: checkboxListTileValue6 ??=
                                                                       listViewNursingAssessmentRecord!
                                                                           .woundprogression!,
-                                                                  onChanged: (newValue) =>
-                                                                      setState(() =>
-                                                                          checkboxListTileValue6 =
-                                                                              newValue!),
+                                                                  onChanged:
+                                                                      (newValue) async {
+                                                                    setState(() =>
+                                                                        checkboxListTileValue6 =
+                                                                            newValue!);
+                                                                  },
                                                                   title: Text(
                                                                     FFLocalizations.of(
                                                                             context)
@@ -4177,10 +4187,12 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   value: checkboxListTileValue7 ??=
                                                                       listViewNursingAssessmentRecord!
                                                                           .nowoundsorfeedingassistance!,
-                                                                  onChanged: (newValue) =>
-                                                                      setState(() =>
-                                                                          checkboxListTileValue7 =
-                                                                              newValue!),
+                                                                  onChanged:
+                                                                      (newValue) async {
+                                                                    setState(() =>
+                                                                        checkboxListTileValue7 =
+                                                                            newValue!);
+                                                                  },
                                                                   title: Text(
                                                                     FFLocalizations.of(
                                                                             context)
@@ -4241,10 +4253,12 @@ class _NursingAssismentCopyCopyWidgetState
                                                                   value: checkboxListTileValue8 ??=
                                                                       listViewNursingAssessmentRecord!
                                                                           .oncatheterstoma!,
-                                                                  onChanged: (newValue) =>
-                                                                      setState(() =>
-                                                                          checkboxListTileValue8 =
-                                                                              newValue!),
+                                                                  onChanged:
+                                                                      (newValue) async {
+                                                                    setState(() =>
+                                                                        checkboxListTileValue8 =
+                                                                            newValue!);
+                                                                  },
                                                                   title: Text(
                                                                     FFLocalizations.of(
                                                                             context)

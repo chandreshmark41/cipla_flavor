@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class UserLoginWidget extends StatefulWidget {
@@ -15,153 +17,188 @@ class UserLoginWidget extends StatefulWidget {
 
 class _UserLoginWidgetState extends State<UserLoginWidget>
     with TickerProviderStateMixin {
+  final animationsMap = {
+    'rowOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0, 20),
+          end: Offset(0, 0),
+        ),
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.9,
+          end: 1,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0, 40),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: Offset(0, 40),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: Offset(0, 60),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 400.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 600.ms,
+          begin: Offset(0, 80),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 600.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: 0.8,
+          end: 1,
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 600.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: 0.7,
+          end: 1,
+        ),
+      ],
+    ),
+  };
   TextEditingController? emailAddressController;
   TextEditingController? passwordController;
 
   late bool passwordVisibility;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final animationsMap = {
-    'rowOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 20),
-        scale: 0.9,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 40),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-    'textFieldOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      delay: 200,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 40),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-    'textFieldOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      delay: 200,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 60),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-    'rowOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      delay: 400,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 80),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-    'buttonOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      delay: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 0.8,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-    'buttonOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      delay: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 0.7,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-  };
 
   @override
   void initState() {
     super.initState();
-    startPageLoadAnimations(
-      animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
       this,
     );
 
@@ -243,8 +280,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget>
                                     fit: BoxFit.fitWidth,
                                   ),
                               ],
-                            ).animated(
-                                [animationsMap['rowOnPageLoadAnimation1']!]),
+                            ).animateOnPageLoad(
+                                animationsMap['rowOnPageLoadAnimation1']!),
                           ),
                           Text(
                             FFLocalizations.of(context).getText(
@@ -254,8 +291,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget>
                                   fontFamily: 'Noto Sans',
                                   fontSize: 32,
                                 ),
-                          ).animated(
-                              [animationsMap['textOnPageLoadAnimation1']!]),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation1']!),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                             child: Text(
@@ -267,8 +304,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget>
                                   .override(
                                     fontFamily: 'Space Grotesk',
                                   ),
-                            ).animated(
-                                [animationsMap['textOnPageLoadAnimation2']!]),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation2']!),
                           ),
                           Padding(
                             padding:
@@ -339,10 +376,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget>
                                           .override(
                                             fontFamily: 'Lato',
                                           ),
-                                    ).animated([
-                                      animationsMap[
-                                          'textFieldOnPageLoadAnimation1']!
-                                    ]),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textFieldOnPageLoadAnimation1']!),
                                   ),
                                 ),
                               ],
@@ -425,10 +460,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget>
                                         .override(
                                           fontFamily: 'Lato',
                                         ),
-                                  ).animated([
-                                    animationsMap[
-                                        'textFieldOnPageLoadAnimation2']!
-                                  ]),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textFieldOnPageLoadAnimation2']!),
                                 ),
                               ],
                             ),
@@ -486,12 +519,11 @@ class _UserLoginWidgetState extends State<UserLoginWidget>
                                     ),
                                     borderRadius: BorderRadius.circular(50),
                                   ),
-                                ).animated([
-                                  animationsMap['buttonOnPageLoadAnimation1']!
-                                ]),
+                                ).animateOnPageLoad(animationsMap[
+                                    'buttonOnPageLoadAnimation1']!),
                               ],
-                            ).animated(
-                                [animationsMap['rowOnPageLoadAnimation2']!]),
+                            ).animateOnPageLoad(
+                                animationsMap['rowOnPageLoadAnimation2']!),
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -519,9 +551,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget>
                                     width: 1,
                                   ),
                                 ),
-                              ).animated([
-                                animationsMap['buttonOnPageLoadAnimation2']!
-                              ]),
+                              ).animateOnPageLoad(
+                                  animationsMap['buttonOnPageLoadAnimation2']!),
                             ],
                           ),
                         ],

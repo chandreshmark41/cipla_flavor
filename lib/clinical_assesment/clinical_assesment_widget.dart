@@ -76,6 +76,7 @@ class _ClinicalAssesmentWidgetState extends State<ClinicalAssesmentWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
@@ -107,7 +108,6 @@ class _ClinicalAssesmentWidgetState extends State<ClinicalAssesmentWidget> {
         centerTitle: true,
         elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: SingleChildScrollView(
@@ -576,30 +576,30 @@ class _ClinicalAssesmentWidgetState extends State<ClinicalAssesmentWidget> {
                                         .secondaryBackground,
                                     borderRadius: BorderRadius.circular(15),
                                   ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Theme(
-                                      data: ThemeData(
-                                        unselectedWidgetColor:
-                                            Color(0xFF95A1AC),
-                                      ),
-                                      child: CheckboxListTile(
-                                        value: endOfLifeCareValue ??= false,
-                                        onChanged: (newValue) => setState(() =>
-                                            endOfLifeCareValue = newValue!),
-                                        title: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'ecmi59v7' /* End of life care */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                  child: Theme(
+                                    data: ThemeData(
+                                      unselectedWidgetColor: Color(0xFF95A1AC),
+                                    ),
+                                    child: CheckboxListTile(
+                                      value: endOfLifeCareValue ??= false,
+                                      onChanged: (newValue) async {
+                                        setState(() =>
+                                            endOfLifeCareValue = newValue!);
+                                      },
+                                      title: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'ecmi59v7' /* End of life care */,
                                         ),
-                                        activeColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                        dense: false,
-                                        controlAffinity:
-                                            ListTileControlAffinity.trailing,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1,
+                                      ),
+                                      activeColor: FlutterFlowTheme.of(context)
+                                          .primaryColor,
+                                      dense: false,
+                                      controlAffinity:
+                                          ListTileControlAffinity.trailing,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
                                   ),
@@ -629,8 +629,10 @@ class _ClinicalAssesmentWidgetState extends State<ClinicalAssesmentWidget> {
                                     ),
                                     child: CheckboxListTile(
                                       value: breathLessNessValue ??= false,
-                                      onChanged: (newValue) => setState(() =>
-                                          breathLessNessValue = newValue!),
+                                      onChanged: (newValue) async {
+                                        setState(() =>
+                                            breathLessNessValue = newValue!);
+                                      },
                                       title: Text(
                                         FFLocalizations.of(context).getText(
                                           'jieg7qh2' /* Breathlessness */,
@@ -671,8 +673,10 @@ class _ClinicalAssesmentWidgetState extends State<ClinicalAssesmentWidget> {
                                     ),
                                     child: CheckboxListTile(
                                       value: titrationValue ??= false,
-                                      onChanged: (newValue) => setState(
-                                          () => titrationValue = newValue!),
+                                      onChanged: (newValue) async {
+                                        setState(
+                                            () => titrationValue = newValue!);
+                                      },
                                       title: Text(
                                         FFLocalizations.of(context).getText(
                                           'wlrfpgej' /* Titration */,
@@ -713,8 +717,10 @@ class _ClinicalAssesmentWidgetState extends State<ClinicalAssesmentWidget> {
                                     ),
                                     child: CheckboxListTile(
                                       value: restLessNessValue ??= false,
-                                      onChanged: (newValue) => setState(
-                                          () => restLessNessValue = newValue!),
+                                      onChanged: (newValue) async {
+                                        setState(() =>
+                                            restLessNessValue = newValue!);
+                                      },
                                       title: Text(
                                         FFLocalizations.of(context).getText(
                                           'ij7d3vks' /* Restlessness */,
@@ -755,8 +761,10 @@ class _ClinicalAssesmentWidgetState extends State<ClinicalAssesmentWidget> {
                                     ),
                                     child: CheckboxListTile(
                                       value: remissionValue ??= false,
-                                      onChanged: (newValue) => setState(
-                                          () => remissionValue = newValue!),
+                                      onChanged: (newValue) async {
+                                        setState(
+                                            () => remissionValue = newValue!);
+                                      },
                                       title: Text(
                                         FFLocalizations.of(context).getText(
                                           'z3upss7d' /* Remission */,
@@ -791,30 +799,30 @@ class _ClinicalAssesmentWidgetState extends State<ClinicalAssesmentWidget> {
                                         .secondaryBackground,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Theme(
-                                      data: ThemeData(
-                                        unselectedWidgetColor:
-                                            Color(0xFF95A1AC),
-                                      ),
-                                      child: CheckboxListTile(
-                                        value: clinicallyStableValue ??= false,
-                                        onChanged: (newValue) => setState(() =>
-                                            clinicallyStableValue = newValue!),
-                                        title: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'vmrsbci6' /* Clinically stable */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                  child: Theme(
+                                    data: ThemeData(
+                                      unselectedWidgetColor: Color(0xFF95A1AC),
+                                    ),
+                                    child: CheckboxListTile(
+                                      value: clinicallyStableValue ??= false,
+                                      onChanged: (newValue) async {
+                                        setState(() =>
+                                            clinicallyStableValue = newValue!);
+                                      },
+                                      title: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'vmrsbci6' /* Clinically stable */,
                                         ),
-                                        activeColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                        dense: false,
-                                        controlAffinity:
-                                            ListTileControlAffinity.trailing,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1,
+                                      ),
+                                      activeColor: FlutterFlowTheme.of(context)
+                                          .primaryColor,
+                                      dense: false,
+                                      controlAffinity:
+                                          ListTileControlAffinity.trailing,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
                                   ),
@@ -843,8 +851,10 @@ class _ClinicalAssesmentWidgetState extends State<ClinicalAssesmentWidget> {
                             context.pushNamed(
                               'NursingAssesment',
                               queryParams: {
-                                'visitId': serializeParam(widget.visitId,
-                                    ParamType.DocumentReference),
+                                'visitId': serializeParam(
+                                  widget.visitId,
+                                  ParamType.DocumentReference,
+                                ),
                               }.withoutNulls,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(

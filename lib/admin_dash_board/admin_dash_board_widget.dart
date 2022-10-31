@@ -8,6 +8,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdminDashBoardWidget extends StatefulWidget {
@@ -19,6 +21,54 @@ class AdminDashBoardWidget extends StatefulWidget {
 
 class _AdminDashBoardWidgetState extends State<AdminDashBoardWidget>
     with TickerProviderStateMixin {
+  final animationsMap = {
+    'textOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'tabOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+      ],
+    ),
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.linear,
+          delay: 0.ms,
+          duration: 900.ms,
+          begin: 0,
+          end: 1,
+        ),
+      ],
+    ),
+  };
   CasesRecord? caseId;
   String? selectDoctorValue;
   String? selectPatientValue;
@@ -39,64 +89,14 @@ class _AdminDashBoardWidgetState extends State<AdminDashBoardWidget>
   TextEditingController? pincodeFieldController;
   TextEditingController? streetFieldController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final animationsMap = {
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-    'tabOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-    'containerOnPageLoadAnimation': AnimationInfo(
-      curve: Curves.linear,
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 900,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-  };
 
   @override
   void initState() {
     super.initState();
-    startPageLoadAnimations(
-      animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
       this,
     );
 
@@ -232,9 +232,8 @@ class _AdminDashBoardWidgetState extends State<AdminDashBoardWidget>
                                             FFLocalizations.of(context).getText(
                                           'v8wtgyj3' /* Case Dashboard */,
                                         ),
-                                      ).animated([
-                                        animationsMap['tabOnPageLoadAnimation']!
-                                      ]),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'tabOnPageLoadAnimation']!),
                                     ],
                                   ),
                                   Expanded(
@@ -325,10 +324,9 @@ class _AdminDashBoardWidgetState extends State<AdminDashBoardWidget>
                                                                           fontSize:
                                                                               16,
                                                                         ),
-                                                                  ).animated([
-                                                                    animationsMap[
-                                                                        'textOnPageLoadAnimation']!
-                                                                  ]),
+                                                                  ).animateOnPageLoad(
+                                                                      animationsMap[
+                                                                          'textOnPageLoadAnimation']!),
                                                                 ),
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
@@ -2202,10 +2200,8 @@ class _AdminDashBoardWidgetState extends State<AdminDashBoardWidget>
                                               ],
                                             ),
                                           ),
-                                        ).animated([
-                                          animationsMap[
-                                              'containerOnPageLoadAnimation']!
-                                        ]),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'containerOnPageLoadAnimation']!),
                                       ],
                                     ),
                                   ),

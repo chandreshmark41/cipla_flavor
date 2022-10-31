@@ -6,6 +6,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class UserDashboardCopyCopyWidget extends StatefulWidget {
@@ -21,35 +22,41 @@ class _UserDashboardCopyCopyWidgetState
   final animationsMap = {
     'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: false,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 30),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0, 30),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'containerOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: false,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 30),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0, 30),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
   };
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -64,9 +71,10 @@ class _UserDashboardCopyCopyWidgetState
       }
     });
 
-    startPageLoadAnimations(
-      animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
       this,
     );
   }
@@ -75,37 +83,6 @@ class _UserDashboardCopyCopyWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
-        automaticallyImplyLeading: false,
-        leading: FlutterFlowIconButton(
-          borderColor: Colors.transparent,
-          borderRadius: 30,
-          borderWidth: 1,
-          buttonSize: 60,
-          icon: Icon(
-            Icons.menu,
-            color: FlutterFlowTheme.of(context).primaryBtnText,
-            size: 30,
-          ),
-          onPressed: () async {
-            scaffoldKey.currentState!.openDrawer();
-          },
-        ),
-        title: Text(
-          FFLocalizations.of(context).getText(
-            'a0hvtszv' /* User Dashboard */,
-          ),
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 24,
-              ),
-        ),
-        actions: [],
-        centerTitle: true,
-        elevation: 2,
-      ),
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       drawer: Drawer(
         elevation: 16,
@@ -288,6 +265,37 @@ class _UserDashboardCopyCopyWidgetState
           ],
         ),
       ),
+      appBar: AppBar(
+        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+        automaticallyImplyLeading: false,
+        leading: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30,
+          borderWidth: 1,
+          buttonSize: 60,
+          icon: Icon(
+            Icons.menu,
+            color: FlutterFlowTheme.of(context).primaryBtnText,
+            size: 30,
+          ),
+          onPressed: () async {
+            scaffoldKey.currentState!.openDrawer();
+          },
+        ),
+        title: Text(
+          FFLocalizations.of(context).getText(
+            'a0hvtszv' /* User Dashboard */,
+          ),
+          style: FlutterFlowTheme.of(context).title2.override(
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontSize: 24,
+              ),
+        ),
+        actions: [],
+        centerTitle: true,
+        elevation: 2,
+      ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Column(
@@ -422,10 +430,11 @@ class _UserDashboardCopyCopyWidgetState
                                                     'ClinicalAssesment',
                                                     queryParams: {
                                                       'visitId': serializeParam(
-                                                          listViewVisitsRecord
-                                                              .reference,
-                                                          ParamType
-                                                              .DocumentReference),
+                                                        listViewVisitsRecord
+                                                            .reference,
+                                                        ParamType
+                                                            .DocumentReference,
+                                                      ),
                                                     }.withoutNulls,
                                                   );
                                                 },
@@ -548,7 +557,11 @@ class _UserDashboardCopyCopyWidgetState
                                                                                 ),
                                                                                 Expanded(
                                                                                   child: Text(
-                                                                                    dateTimeFormat('d/M/y', containerCasesRecord.createdOn!),
+                                                                                    dateTimeFormat(
+                                                                                      'd/M/y',
+                                                                                      containerCasesRecord.createdOn!,
+                                                                                      locale: FFLocalizations.of(context).languageCode,
+                                                                                    ),
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                           fontFamily: 'Open Sans',
                                                                                           fontSize: 15,
@@ -663,7 +676,11 @@ class _UserDashboardCopyCopyWidgetState
                                                                                 Expanded(
                                                                                   child: Text(
                                                                                     valueOrDefault<String>(
-                                                                                      dateTimeFormat('d/M/y', listViewVisitsRecord.scheduledDate),
+                                                                                      dateTimeFormat(
+                                                                                        'd/M/y',
+                                                                                        listViewVisitsRecord.scheduledDate,
+                                                                                        locale: FFLocalizations.of(context).languageCode,
+                                                                                      ),
                                                                                       'Not Scheduled',
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -702,10 +719,8 @@ class _UserDashboardCopyCopyWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              ).animated([
-                                                animationsMap[
-                                                    'containerOnPageLoadAnimation1']!
-                                              ]);
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'containerOnPageLoadAnimation1']!);
                                             },
                                           ),
                                         );
@@ -1076,10 +1091,8 @@ class _UserDashboardCopyCopyWidgetState
                                                       ),
                                                     ),
                                                   ),
-                                                ).animated([
-                                                  animationsMap[
-                                                      'containerOnPageLoadAnimation2']!
-                                                ]),
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'containerOnPageLoadAnimation2']!),
                                               );
                                             },
                                           );

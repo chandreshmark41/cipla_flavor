@@ -65,6 +65,7 @@ class _PsychologicalAssesmentWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
@@ -96,7 +97,6 @@ class _PsychologicalAssesmentWidgetState
         centerTitle: true,
         elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -451,8 +451,9 @@ class _PsychologicalAssesmentWidgetState
                               ),
                               child: CheckboxListTile(
                                 value: bbnToPatientValue ??= false,
-                                onChanged: (newValue) => setState(
-                                    () => bbnToPatientValue = newValue!),
+                                onChanged: (newValue) async {
+                                  setState(() => bbnToPatientValue = newValue!);
+                                },
                                 title: Text(
                                   FFLocalizations.of(context).getText(
                                     'hiksrhxu' /* Family wants BBN to patient */,
@@ -491,8 +492,10 @@ class _PsychologicalAssesmentWidgetState
                               ),
                               child: CheckboxListTile(
                                 value: affectGoalOfHealthValue ??= false,
-                                onChanged: (newValue) => setState(
-                                    () => affectGoalOfHealthValue = newValue!),
+                                onChanged: (newValue) async {
+                                  setState(() =>
+                                      affectGoalOfHealthValue = newValue!);
+                                },
                                 title: Text(
                                   FFLocalizations.of(context).getText(
                                     '8lxxxgo0' /* Family colusion that affects g... */,

@@ -22,6 +22,7 @@ class _LowPriorityCasesWidgetState extends State<LowPriorityCasesWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
@@ -53,7 +54,6 @@ class _LowPriorityCasesWidgetState extends State<LowPriorityCasesWidget> {
         centerTitle: false,
         elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -443,9 +443,14 @@ class _LowPriorityCasesWidgetState extends State<LowPriorityCasesWidget> {
                                                             0, 0),
                                                     child: Text(
                                                       dateTimeFormat(
-                                                          'yMMMd',
-                                                          containerCasesRecord
-                                                              .createdOn!),
+                                                        'yMMMd',
+                                                        containerCasesRecord
+                                                            .createdOn!,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -475,22 +480,24 @@ class _LowPriorityCasesWidgetState extends State<LowPriorityCasesWidget> {
                                                         context.pushNamed(
                                                           'visitScheduling',
                                                           queryParams: {
-                                                            'caseId': serializeParam(
-                                                                containerCasesRecord
-                                                                    .reference,
-                                                                ParamType
-                                                                    .DocumentReference),
+                                                            'caseId':
+                                                                serializeParam(
+                                                              containerCasesRecord
+                                                                  .reference,
+                                                              ParamType
+                                                                  .DocumentReference,
+                                                            ),
                                                             'currentPriority':
                                                                 serializeParam(
-                                                                    containerCasesRecord
-                                                                        .priority,
-                                                                    ParamType
-                                                                        .String),
+                                                              containerCasesRecord
+                                                                  .priority,
+                                                              ParamType.String,
+                                                            ),
                                                             'compass':
                                                                 serializeParam(
-                                                                    'West',
-                                                                    ParamType
-                                                                        .String),
+                                                              'West',
+                                                              ParamType.String,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
 

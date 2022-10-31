@@ -74,6 +74,7 @@ class _NursingAssesmentCopy2WidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
@@ -105,7 +106,6 @@ class _NursingAssesmentCopy2WidgetState
         centerTitle: true,
         elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -643,36 +643,35 @@ class _NursingAssesmentCopy2WidgetState
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: CheckboxListTile(
-                                            value: checkboxListTileValue1 ??=
-                                                listViewNursingAssessmentRecord!
-                                                    .bleeding!,
-                                            onChanged: (newValue) => setState(
-                                                () => checkboxListTileValue1 =
-                                                    newValue!),
-                                            title: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '8cpcv6ht' /* Bleeding */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .title3
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 16,
-                                                      ),
+                                        child: CheckboxListTile(
+                                          value: checkboxListTileValue1 ??=
+                                              listViewNursingAssessmentRecord!
+                                                  .bleeding!,
+                                          onChanged: (newValue) async {
+                                            setState(() =>
+                                                checkboxListTileValue1 =
+                                                    newValue!);
+                                          },
+                                          title: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '8cpcv6ht' /* Bleeding */,
                                             ),
-                                            activeColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryColor,
-                                            dense: false,
-                                            controlAffinity:
-                                                ListTileControlAffinity
-                                                    .trailing,
+                                            style: FlutterFlowTheme.of(context)
+                                                .title3
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 16,
+                                                ),
+                                          ),
+                                          activeColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryColor,
+                                          dense: false,
+                                          controlAffinity:
+                                              ListTileControlAffinity.trailing,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
                                         ),
                                       ),
@@ -696,39 +695,38 @@ class _NursingAssesmentCopy2WidgetState
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: CheckboxListTile(
-                                            value: checkboxListTileValue2 ??=
-                                                listViewNursingAssessmentRecord!
-                                                    .breathlessness!,
-                                            onChanged: (newValue) => setState(
-                                                () => checkboxListTileValue2 =
-                                                    newValue!),
-                                            title: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '4y42oplt' /* Breathlessness */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .title3
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 16,
-                                                      ),
+                                        child: CheckboxListTile(
+                                          value: checkboxListTileValue2 ??=
+                                              listViewNursingAssessmentRecord!
+                                                  .breathlessness!,
+                                          onChanged: (newValue) async {
+                                            setState(() =>
+                                                checkboxListTileValue2 =
+                                                    newValue!);
+                                          },
+                                          title: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '4y42oplt' /* Breathlessness */,
                                             ),
-                                            activeColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryColor,
-                                            dense: false,
-                                            controlAffinity:
-                                                ListTileControlAffinity
-                                                    .trailing,
-                                            contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    2, 2, 2, 2),
+                                            style: FlutterFlowTheme.of(context)
+                                                .title3
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 16,
+                                                ),
+                                          ),
+                                          activeColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryColor,
+                                          dense: false,
+                                          controlAffinity:
+                                              ListTileControlAffinity.trailing,
+                                          contentPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  2, 2, 2, 2),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
                                         ),
                                       ),
@@ -752,36 +750,35 @@ class _NursingAssesmentCopy2WidgetState
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: CheckboxListTile(
-                                            value: checkboxListTileValue3 ??=
-                                                listViewNursingAssessmentRecord!
-                                                    .bedridden!,
-                                            onChanged: (newValue) => setState(
-                                                () => checkboxListTileValue3 =
-                                                    newValue!),
-                                            title: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'izkcurny' /* Bedridden */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .title3
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 16,
-                                                      ),
+                                        child: CheckboxListTile(
+                                          value: checkboxListTileValue3 ??=
+                                              listViewNursingAssessmentRecord!
+                                                  .bedridden!,
+                                          onChanged: (newValue) async {
+                                            setState(() =>
+                                                checkboxListTileValue3 =
+                                                    newValue!);
+                                          },
+                                          title: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'izkcurny' /* Bedridden */,
                                             ),
-                                            activeColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryColor,
-                                            dense: false,
-                                            controlAffinity:
-                                                ListTileControlAffinity
-                                                    .trailing,
+                                            style: FlutterFlowTheme.of(context)
+                                                .title3
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 16,
+                                                ),
+                                          ),
+                                          activeColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryColor,
+                                          dense: false,
+                                          controlAffinity:
+                                              ListTileControlAffinity.trailing,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
                                         ),
                                       ),
@@ -805,36 +802,35 @@ class _NursingAssesmentCopy2WidgetState
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: CheckboxListTile(
-                                            value: checkboxListTileValue4 ??=
-                                                listViewNursingAssessmentRecord!
-                                                    .restlessness!,
-                                            onChanged: (newValue) => setState(
-                                                () => checkboxListTileValue4 =
-                                                    newValue!),
-                                            title: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'g04lr4gq' /* Restlessness */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .title3
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 16,
-                                                      ),
+                                        child: CheckboxListTile(
+                                          value: checkboxListTileValue4 ??=
+                                              listViewNursingAssessmentRecord!
+                                                  .restlessness!,
+                                          onChanged: (newValue) async {
+                                            setState(() =>
+                                                checkboxListTileValue4 =
+                                                    newValue!);
+                                          },
+                                          title: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'g04lr4gq' /* Restlessness */,
                                             ),
-                                            activeColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryColor,
-                                            dense: false,
-                                            controlAffinity:
-                                                ListTileControlAffinity
-                                                    .trailing,
+                                            style: FlutterFlowTheme.of(context)
+                                                .title3
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 16,
+                                                ),
+                                          ),
+                                          activeColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryColor,
+                                          dense: false,
+                                          controlAffinity:
+                                              ListTileControlAffinity.trailing,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
                                         ),
                                       ),
@@ -862,9 +858,11 @@ class _NursingAssesmentCopy2WidgetState
                                           value: checkboxListTileValue5 ??=
                                               listViewNursingAssessmentRecord!
                                                   .clinicallystable!,
-                                          onChanged: (newValue) => setState(
-                                              () => checkboxListTileValue5 =
-                                                  newValue!),
+                                          onChanged: (newValue) async {
+                                            setState(() =>
+                                                checkboxListTileValue5 =
+                                                    newValue!);
+                                          },
                                           title: Text(
                                             FFLocalizations.of(context).getText(
                                               'k3x4yp2b' /* Clinicaly stable */,
@@ -913,40 +911,39 @@ class _NursingAssesmentCopy2WidgetState
                                             topRight: Radius.circular(10),
                                           ),
                                         ),
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(0),
-                                            bottomRight: Radius.circular(0),
-                                            topLeft: Radius.circular(15),
-                                            topRight: Radius.circular(15),
-                                          ),
-                                          child: CheckboxListTile(
-                                            value: checkboxListTileValue6 ??=
-                                                listViewNursingAssessmentRecord!
-                                                    .woundprogression!,
-                                            onChanged: (newValue) => setState(
-                                                () => checkboxListTileValue6 =
-                                                    newValue!),
-                                            title: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'n4ppuiy5' /* Wound progression */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .title3
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 16,
-                                                      ),
+                                        child: CheckboxListTile(
+                                          value: checkboxListTileValue6 ??=
+                                              listViewNursingAssessmentRecord!
+                                                  .woundprogression!,
+                                          onChanged: (newValue) async {
+                                            setState(() =>
+                                                checkboxListTileValue6 =
+                                                    newValue!);
+                                          },
+                                          title: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'n4ppuiy5' /* Wound progression */,
                                             ),
-                                            activeColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryColor,
-                                            dense: false,
-                                            controlAffinity:
-                                                ListTileControlAffinity
-                                                    .trailing,
+                                            style: FlutterFlowTheme.of(context)
+                                                .title3
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 16,
+                                                ),
+                                          ),
+                                          activeColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryColor,
+                                          dense: false,
+                                          controlAffinity:
+                                              ListTileControlAffinity.trailing,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0),
+                                              bottomRight: Radius.circular(0),
+                                              topLeft: Radius.circular(15),
+                                              topRight: Radius.circular(15),
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -983,9 +980,11 @@ class _NursingAssesmentCopy2WidgetState
                                           value: checkboxListTileValue7 ??=
                                               listViewNursingAssessmentRecord!
                                                   .nowoundsorfeedingassistance!,
-                                          onChanged: (newValue) => setState(
-                                              () => checkboxListTileValue7 =
-                                                  newValue!),
+                                          onChanged: (newValue) async {
+                                            setState(() =>
+                                                checkboxListTileValue7 =
+                                                    newValue!);
+                                          },
                                           title: Text(
                                             FFLocalizations.of(context).getText(
                                               '7dssppyx' /* Feeding assistance */,
@@ -1024,9 +1023,11 @@ class _NursingAssesmentCopy2WidgetState
                                           value: checkboxListTileValue8 ??=
                                               listViewNursingAssessmentRecord!
                                                   .oncatheterstoma!,
-                                          onChanged: (newValue) => setState(
-                                              () => checkboxListTileValue8 =
-                                                  newValue!),
+                                          onChanged: (newValue) async {
+                                            setState(() =>
+                                                checkboxListTileValue8 =
+                                                    newValue!);
+                                          },
                                           title: Text(
                                             FFLocalizations.of(context).getText(
                                               'xnvp6zcq' /* On catheter stoma */,

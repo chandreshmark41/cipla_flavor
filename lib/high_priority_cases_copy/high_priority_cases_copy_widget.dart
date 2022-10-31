@@ -24,6 +24,7 @@ class _HighPriorityCasesCopyWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
@@ -55,7 +56,6 @@ class _HighPriorityCasesCopyWidgetState
         centerTitle: false,
         elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -445,9 +445,14 @@ class _HighPriorityCasesCopyWidgetState
                                                             0, 0),
                                                     child: Text(
                                                       dateTimeFormat(
-                                                          'yMMMd',
-                                                          containerCasesRecord
-                                                              .createdOn!),
+                                                        'yMMMd',
+                                                        containerCasesRecord
+                                                            .createdOn!,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -479,20 +484,22 @@ class _HighPriorityCasesCopyWidgetState
                                                           queryParams: {
                                                             'currentPriority':
                                                                 serializeParam(
-                                                                    containerCasesRecord
-                                                                        .priority,
-                                                                    ParamType
-                                                                        .String),
+                                                              containerCasesRecord
+                                                                  .priority,
+                                                              ParamType.String,
+                                                            ),
                                                             'compass':
                                                                 serializeParam(
-                                                                    'West',
-                                                                    ParamType
-                                                                        .String),
-                                                            'caseId': serializeParam(
-                                                                listOfCasesItem
-                                                                    .caseId,
-                                                                ParamType
-                                                                    .DocumentReference),
+                                                              'West',
+                                                              ParamType.String,
+                                                            ),
+                                                            'caseId':
+                                                                serializeParam(
+                                                              listOfCasesItem
+                                                                  .caseId,
+                                                              ParamType
+                                                                  .DocumentReference,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
 

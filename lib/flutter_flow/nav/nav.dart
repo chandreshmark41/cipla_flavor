@@ -9,6 +9,8 @@ import '../../auth/firebase_user_provider.dart';
 
 import '../../index.dart';
 import '../../main.dart';
+import '../lat_lng.dart';
+import '../place.dart';
 import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -91,7 +93,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'clinicalAssesment',
               builder: (context, params) => ClinicalAssesmentWidget(
                 visitId: params.getParam(
-                    'visitId', ParamType.DocumentReference, 'visits'),
+                    'visitId', ParamType.DocumentReference, false, 'visits'),
               ),
             ),
             FFRoute(
@@ -129,7 +131,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'nursingAssesment',
               builder: (context, params) => NursingAssesmentWidget(
                 visitId: params.getParam(
-                    'visitId', ParamType.DocumentReference, 'visits'),
+                    'visitId', ParamType.DocumentReference, false, 'visits'),
               ),
             ),
             FFRoute(
@@ -137,7 +139,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'psychologicalAssesment',
               builder: (context, params) => PsychologicalAssesmentWidget(
                 visitId: params.getParam(
-                    'visitId', ParamType.DocumentReference, 'visits'),
+                    'visitId', ParamType.DocumentReference, false, 'visits'),
               ),
             ),
             FFRoute(
@@ -155,7 +157,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'visitScheduling',
               builder: (context, params) => VisitSchedulingWidget(
                 caseId: params.getParam(
-                    'caseId', ParamType.DocumentReference, 'cases'),
+                    'caseId', ParamType.DocumentReference, false, 'cases'),
                 currentPriority:
                     params.getParam('currentPriority', ParamType.String),
                 compass: params.getParam('compass', ParamType.String),
@@ -303,9 +305,10 @@ class FFParameters {
         ),
       ).onError((_, __) => [false]).then((v) => v.every((e) => e));
 
-  dynamic getParam(
+  dynamic getParam<T>(
     String paramName,
     ParamType type, [
+    bool isList = false,
     String? collectionName,
   ]) {
     if (futureParamValues.containsKey(paramName)) {
@@ -320,7 +323,7 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam(param, type, collectionName);
+    return deserializeParam<T>(param, type, isList, collectionName);
   }
 }
 
@@ -366,13 +369,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                    ),
+              ? Container(
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    'assets/images/14916-prueba-doctores-freepik.gif',
+                    fit: BoxFit.fitWidth,
                   ),
                 )
               : page;

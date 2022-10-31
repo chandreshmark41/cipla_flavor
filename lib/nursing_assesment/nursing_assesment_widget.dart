@@ -77,6 +77,7 @@ class _NursingAssesmentWidgetState extends State<NursingAssesmentWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
@@ -108,7 +109,6 @@ class _NursingAssesmentWidgetState extends State<NursingAssesmentWidget> {
         centerTitle: true,
         elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Visibility(
@@ -572,28 +572,29 @@ class _NursingAssesmentWidgetState extends State<NursingAssesmentWidget> {
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Theme(
-                                  data: ThemeData(
-                                    unselectedWidgetColor: Color(0xFF95A1AC),
-                                  ),
-                                  child: CheckboxListTile(
-                                    value: bleddingaValue ??= false,
-                                    onChanged: (newValue) => setState(
-                                        () => bleddingaValue = newValue!),
-                                    title: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'jmaae9go' /* Bleeding */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                              child: Theme(
+                                data: ThemeData(
+                                  unselectedWidgetColor: Color(0xFF95A1AC),
+                                ),
+                                child: CheckboxListTile(
+                                  value: bleddingaValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(() => bleddingaValue = newValue!);
+                                  },
+                                  title: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'jmaae9go' /* Bleeding */,
                                     ),
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    dense: false,
-                                    controlAffinity:
-                                        ListTileControlAffinity.trailing,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
                               ),
@@ -616,28 +617,30 @@ class _NursingAssesmentWidgetState extends State<NursingAssesmentWidget> {
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Theme(
-                                  data: ThemeData(
-                                    unselectedWidgetColor: Color(0xFF95A1AC),
-                                  ),
-                                  child: CheckboxListTile(
-                                    value: breathLessNessValue ??= false,
-                                    onChanged: (newValue) => setState(
-                                        () => breathLessNessValue = newValue!),
-                                    title: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '91t8w9he' /* Breathlessness */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                              child: Theme(
+                                data: ThemeData(
+                                  unselectedWidgetColor: Color(0xFF95A1AC),
+                                ),
+                                child: CheckboxListTile(
+                                  value: breathLessNessValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(
+                                        () => breathLessNessValue = newValue!);
+                                  },
+                                  title: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '91t8w9he' /* Breathlessness */,
                                     ),
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    dense: false,
-                                    controlAffinity:
-                                        ListTileControlAffinity.trailing,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
                               ),
@@ -666,8 +669,9 @@ class _NursingAssesmentWidgetState extends State<NursingAssesmentWidget> {
                                 ),
                                 child: CheckboxListTile(
                                   value: bedRiddenValue ??= false,
-                                  onChanged: (newValue) => setState(
-                                      () => bedRiddenValue = newValue!),
+                                  onChanged: (newValue) async {
+                                    setState(() => bedRiddenValue = newValue!);
+                                  },
                                   title: Text(
                                     FFLocalizations.of(context).getText(
                                       'ohe3ry6s' /* Bedridden */,
@@ -707,8 +711,10 @@ class _NursingAssesmentWidgetState extends State<NursingAssesmentWidget> {
                                 ),
                                 child: CheckboxListTile(
                                   value: restLessNessValue ??= false,
-                                  onChanged: (newValue) => setState(
-                                      () => restLessNessValue = newValue!),
+                                  onChanged: (newValue) async {
+                                    setState(
+                                        () => restLessNessValue = newValue!);
+                                  },
                                   title: Text(
                                     FFLocalizations.of(context).getText(
                                       '79uhj58x' /* Restlessness */,
@@ -748,8 +754,10 @@ class _NursingAssesmentWidgetState extends State<NursingAssesmentWidget> {
                                 ),
                                 child: CheckboxListTile(
                                   value: clinicalyStableValue ??= false,
-                                  onChanged: (newValue) => setState(
-                                      () => clinicalyStableValue = newValue!),
+                                  onChanged: (newValue) async {
+                                    setState(
+                                        () => clinicalyStableValue = newValue!);
+                                  },
                                   title: Text(
                                     FFLocalizations.of(context).getText(
                                       '3yi0gl06' /* Clinicaly stable */,
@@ -783,28 +791,30 @@ class _NursingAssesmentWidgetState extends State<NursingAssesmentWidget> {
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Theme(
-                                  data: ThemeData(
-                                    unselectedWidgetColor: Color(0xFF95A1AC),
-                                  ),
-                                  child: CheckboxListTile(
-                                    value: woundProgressionValue ??= false,
-                                    onChanged: (newValue) => setState(() =>
-                                        woundProgressionValue = newValue!),
-                                    title: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'gr47ufba' /* Wound progression */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                              child: Theme(
+                                data: ThemeData(
+                                  unselectedWidgetColor: Color(0xFF95A1AC),
+                                ),
+                                child: CheckboxListTile(
+                                  value: woundProgressionValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(() =>
+                                        woundProgressionValue = newValue!);
+                                  },
+                                  title: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'gr47ufba' /* Wound progression */,
                                     ),
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    dense: false,
-                                    controlAffinity:
-                                        ListTileControlAffinity.trailing,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
                               ),
@@ -827,28 +837,30 @@ class _NursingAssesmentWidgetState extends State<NursingAssesmentWidget> {
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Theme(
-                                  data: ThemeData(
-                                    unselectedWidgetColor: Color(0xFF95A1AC),
-                                  ),
-                                  child: CheckboxListTile(
-                                    value: feedingAssistanceValue ??= false,
-                                    onChanged: (newValue) => setState(() =>
-                                        feedingAssistanceValue = newValue!),
-                                    title: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'pgo88pa8' /* Feeding assistance */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                              child: Theme(
+                                data: ThemeData(
+                                  unselectedWidgetColor: Color(0xFF95A1AC),
+                                ),
+                                child: CheckboxListTile(
+                                  value: feedingAssistanceValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(() =>
+                                        feedingAssistanceValue = newValue!);
+                                  },
+                                  title: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'pgo88pa8' /* Feeding assistance */,
                                     ),
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    dense: false,
-                                    controlAffinity:
-                                        ListTileControlAffinity.trailing,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
                               ),
@@ -871,28 +883,30 @@ class _NursingAssesmentWidgetState extends State<NursingAssesmentWidget> {
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Theme(
-                                  data: ThemeData(
-                                    unselectedWidgetColor: Color(0xFF95A1AC),
-                                  ),
-                                  child: CheckboxListTile(
-                                    value: onCatheterStomaValue ??= false,
-                                    onChanged: (newValue) => setState(
-                                        () => onCatheterStomaValue = newValue!),
-                                    title: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'mf97eq0r' /* On catheter stoma */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                              child: Theme(
+                                data: ThemeData(
+                                  unselectedWidgetColor: Color(0xFF95A1AC),
+                                ),
+                                child: CheckboxListTile(
+                                  value: onCatheterStomaValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(
+                                        () => onCatheterStomaValue = newValue!);
+                                  },
+                                  title: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'mf97eq0r' /* On catheter stoma */,
                                     ),
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    dense: false,
-                                    controlAffinity:
-                                        ListTileControlAffinity.trailing,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
                               ),
@@ -924,7 +938,9 @@ class _NursingAssesmentWidgetState extends State<NursingAssesmentWidget> {
                           'PsychologicalAssesment',
                           queryParams: {
                             'visitId': serializeParam(
-                                widget.visitId, ParamType.DocumentReference),
+                              widget.visitId,
+                              ParamType.DocumentReference,
+                            ),
                           }.withoutNulls,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(

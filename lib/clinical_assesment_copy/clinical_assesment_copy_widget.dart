@@ -45,14 +45,13 @@ class _ClinicalAssesmentCopyWidgetState
         context.pushNamed('Admin_DashBoard');
       }
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
@@ -78,7 +77,6 @@ class _ClinicalAssesmentCopyWidgetState
         centerTitle: true,
         elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: SingleChildScrollView(
@@ -379,14 +377,12 @@ class _ClinicalAssesmentCopyWidgetState
                                             alignment:
                                                 AlignmentDirectional(0.15, 0),
                                             child: FlutterFlowCheckboxGroup(
-                                              initiallySelected:
-                                                  endoflifecareValues ??= [],
                                               options: [
                                                 FFLocalizations.of(context)
                                                     .getText(
                                                   '6skw9lhj' /* End of life care  */,
                                                 )
-                                              ].toList(),
+                                              ],
                                               onChanged: (val) => setState(() =>
                                                   endoflifecareValues = val),
                                               activeColor:
@@ -398,6 +394,8 @@ class _ClinicalAssesmentCopyWidgetState
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1,
+                                              initialized:
+                                                  endoflifecareValues != null,
                                             ),
                                           ),
                                         ),
@@ -429,15 +427,12 @@ class _ClinicalAssesmentCopyWidgetState
                                               alignment:
                                                   AlignmentDirectional(0.15, 0),
                                               child: FlutterFlowCheckboxGroup(
-                                                initiallySelected:
-                                                    opioidsandtitrationValues ??=
-                                                        [],
                                                 options: [
                                                   FFLocalizations.of(context)
                                                       .getText(
                                                     'ljpu0od0' /* Opioids and titration */,
                                                   )
-                                                ].toList(),
+                                                ],
                                                 onChanged: (val) => setState(() =>
                                                     opioidsandtitrationValues =
                                                         val),
@@ -450,6 +445,9 @@ class _ClinicalAssesmentCopyWidgetState
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1,
+                                                initialized:
+                                                    opioidsandtitrationValues !=
+                                                        null,
                                               ),
                                             ),
                                           ),
@@ -495,14 +493,12 @@ class _ClinicalAssesmentCopyWidgetState
                                             alignment:
                                                 AlignmentDirectional(0.6, 0),
                                             child: FlutterFlowCheckboxGroup(
-                                              initiallySelected:
-                                                  breathlessnessValues ??= [],
                                               options: [
                                                 FFLocalizations.of(context)
                                                     .getText(
                                                   'yk5oqc2w' /* Breathlessness */,
                                                 )
-                                              ].toList(),
+                                              ],
                                               onChanged: (val) => setState(() =>
                                                   breathlessnessValues = val),
                                               activeColor:
@@ -514,6 +510,8 @@ class _ClinicalAssesmentCopyWidgetState
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1,
+                                              initialized:
+                                                  breathlessnessValues != null,
                                             ),
                                           ),
                                         ),
@@ -545,14 +543,12 @@ class _ClinicalAssesmentCopyWidgetState
                                               alignment:
                                                   AlignmentDirectional(0.15, 0),
                                               child: FlutterFlowCheckboxGroup(
-                                                initiallySelected:
-                                                    remissionValues ??= [],
                                                 options: [
                                                   FFLocalizations.of(context)
                                                       .getText(
                                                     'tqgrgagk' /* Remission */,
                                                   )
-                                                ].toList(),
+                                                ],
                                                 onChanged: (val) => setState(
                                                     () =>
                                                         remissionValues = val),
@@ -565,6 +561,8 @@ class _ClinicalAssesmentCopyWidgetState
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1,
+                                                initialized:
+                                                    remissionValues != null,
                                               ),
                                             ),
                                           ),
@@ -610,14 +608,12 @@ class _ClinicalAssesmentCopyWidgetState
                                             alignment:
                                                 AlignmentDirectional(0.15, 0),
                                             child: FlutterFlowCheckboxGroup(
-                                              initiallySelected:
-                                                  bleedingValues ??= [],
                                               options: [
                                                 FFLocalizations.of(context)
                                                     .getText(
                                                   '8evt0wek' /* Bleeding */,
                                                 )
-                                              ].toList(),
+                                              ],
                                               onChanged: (val) => setState(
                                                   () => bleedingValues = val),
                                               activeColor:
@@ -629,6 +625,8 @@ class _ClinicalAssesmentCopyWidgetState
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1,
+                                              initialized:
+                                                  bleedingValues != null,
                                             ),
                                           ),
                                         ),
@@ -656,14 +654,12 @@ class _ClinicalAssesmentCopyWidgetState
                                             alignment:
                                                 AlignmentDirectional(0.15, 0),
                                             child: FlutterFlowCheckboxGroup(
-                                              initiallySelected:
-                                                  restlessnessValues ??= [],
                                               options: [
                                                 FFLocalizations.of(context)
                                                     .getText(
                                                   '8ni8b3xo' /* Restlessness */,
                                                 )
-                                              ].toList(),
+                                              ],
                                               onChanged: (val) => setState(() =>
                                                   restlessnessValues = val),
                                               activeColor:
@@ -675,6 +671,8 @@ class _ClinicalAssesmentCopyWidgetState
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1,
+                                              initialized:
+                                                  restlessnessValues != null,
                                             ),
                                           ),
                                         ),
@@ -740,9 +738,11 @@ class _ClinicalAssesmentCopyWidgetState
                                               value: checkboxListTileValue1 ??=
                                                   listViewAssesmentDetailRecord!
                                                       .endOfLife!,
-                                              onChanged: (newValue) => setState(
-                                                  () => checkboxListTileValue1 =
-                                                      newValue!),
+                                              onChanged: (newValue) async {
+                                                setState(() =>
+                                                    checkboxListTileValue1 =
+                                                        newValue!);
+                                              },
                                               title: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -791,9 +791,11 @@ class _ClinicalAssesmentCopyWidgetState
                                               value: checkboxListTileValue2 ??=
                                                   listViewAssesmentDetailRecord!
                                                       .breathlessness!,
-                                              onChanged: (newValue) => setState(
-                                                  () => checkboxListTileValue2 =
-                                                      newValue!),
+                                              onChanged: (newValue) async {
+                                                setState(() =>
+                                                    checkboxListTileValue2 =
+                                                        newValue!);
+                                              },
                                               title: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -842,9 +844,11 @@ class _ClinicalAssesmentCopyWidgetState
                                               value: checkboxListTileValue3 ??=
                                                   listViewAssesmentDetailRecord!
                                                       .titration!,
-                                              onChanged: (newValue) => setState(
-                                                  () => checkboxListTileValue3 =
-                                                      newValue!),
+                                              onChanged: (newValue) async {
+                                                setState(() =>
+                                                    checkboxListTileValue3 =
+                                                        newValue!);
+                                              },
                                               title: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -893,9 +897,11 @@ class _ClinicalAssesmentCopyWidgetState
                                               value: checkboxListTileValue4 ??=
                                                   listViewAssesmentDetailRecord!
                                                       .restlessness!,
-                                              onChanged: (newValue) => setState(
-                                                  () => checkboxListTileValue4 =
-                                                      newValue!),
+                                              onChanged: (newValue) async {
+                                                setState(() =>
+                                                    checkboxListTileValue4 =
+                                                        newValue!);
+                                              },
                                               title: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -944,9 +950,11 @@ class _ClinicalAssesmentCopyWidgetState
                                               value: checkboxListTileValue5 ??=
                                                   listViewAssesmentDetailRecord!
                                                       .remmission!,
-                                              onChanged: (newValue) => setState(
-                                                  () => checkboxListTileValue5 =
-                                                      newValue!),
+                                              onChanged: (newValue) async {
+                                                setState(() =>
+                                                    checkboxListTileValue5 =
+                                                        newValue!);
+                                              },
                                               title: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -995,9 +1003,11 @@ class _ClinicalAssesmentCopyWidgetState
                                               value: checkboxListTileValue6 ??=
                                                   listViewAssesmentDetailRecord!
                                                       .clinicallystable!,
-                                              onChanged: (newValue) => setState(
-                                                  () => checkboxListTileValue6 =
-                                                      newValue!),
+                                              onChanged: (newValue) async {
+                                                setState(() =>
+                                                    checkboxListTileValue6 =
+                                                        newValue!);
+                                              },
                                               title: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(

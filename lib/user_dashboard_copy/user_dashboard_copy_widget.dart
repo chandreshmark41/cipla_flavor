@@ -7,6 +7,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class UserDashboardCopyWidget extends StatefulWidget {
@@ -22,67 +23,83 @@ class _UserDashboardCopyWidgetState extends State<UserDashboardCopyWidget>
   final animationsMap = {
     'textOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(100, 0),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(100, 0),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'textOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'containerOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(100, 0),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(100, 0),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
   };
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -97,9 +114,10 @@ class _UserDashboardCopyWidgetState extends State<UserDashboardCopyWidget>
       }
     });
 
-    startPageLoadAnimations(
-      animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
       this,
     );
   }
@@ -108,6 +126,7 @@ class _UserDashboardCopyWidgetState extends State<UserDashboardCopyWidget>
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
@@ -152,7 +171,6 @@ class _UserDashboardCopyWidgetState extends State<UserDashboardCopyWidget>
         centerTitle: false,
         elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Column(
@@ -231,10 +249,8 @@ class _UserDashboardCopyWidgetState extends State<UserDashboardCopyWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                             ),
-                                      ).animated([
-                                        animationsMap[
-                                            'textOnPageLoadAnimation1']!
-                                      ]),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation1']!),
                                     ),
                                     Expanded(
                                       child: StreamBuilder<List<VisitsRecord>>(
@@ -521,10 +537,9 @@ class _UserDashboardCopyWidgetState extends State<UserDashboardCopyWidget>
                                                           ),
                                                         ),
                                                       ),
-                                                    ).animated([
-                                                      animationsMap[
-                                                          'containerOnPageLoadAnimation1']!
-                                                    ]);
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation1']!);
                                                   },
                                                 ),
                                               );
@@ -612,10 +627,8 @@ class _UserDashboardCopyWidgetState extends State<UserDashboardCopyWidget>
                                                           context)
                                                       .primaryText,
                                                 ),
-                                          ).animated([
-                                            animationsMap[
-                                                'textOnPageLoadAnimation2']!
-                                          ]),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation2']!),
                                         ),
                                         StreamBuilder<List<CasesRecord>>(
                                           stream: queryCasesRecord(),
@@ -878,10 +891,8 @@ class _UserDashboardCopyWidgetState extends State<UserDashboardCopyWidget>
                                                         ),
                                                       ),
                                                     ),
-                                                  ).animated([
-                                                    animationsMap[
-                                                        'containerOnPageLoadAnimation2']!
-                                                  ]),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'containerOnPageLoadAnimation2']!),
                                                 );
                                               },
                                             );
